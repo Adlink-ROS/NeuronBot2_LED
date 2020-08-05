@@ -143,7 +143,7 @@ class Strip:
         self.clear()
         for t in range(times):
             for i in range(num):
-                    self.setPixelColor(i,180,0,0)
+                    self.setPixelColor(i,128,0,0)
             self.show()
             self.delay(wait)
             self.clear()
@@ -158,35 +158,35 @@ class Strip:
         self.clear()      
         self.delay(100)  
         for i in range(num):
-            self.setPixelColor(i,180,180,180)                
+            self.setPixelColor(i,128,128,128)                
         self.show()
 
     def mode_amber(self, num):
         self.clear()      
         self.delay(100)  
         for i in range(num):
-            self.setPixelColor(i,0,0,180)                
+            self.setPixelColor(i,0,0,128)                
         self.show()
 
     def mode_red(self, num):
         self.clear()        
         self.delay(100)
         for i in range(num):
-            self.setPixelColor(i,180,0,0)        
+            self.setPixelColor(i,128,0,0)        
         self.show()
         
     def mode_green(self, num):
         self.clear()        
         self.delay(100)
         for i in range(num):
-            self.setPixelColor(i,0,180,0)
+            self.setPixelColor(i,0,128,0)
         self.show()
 
     def mode_blue(self, num):
         self.clear()      
         self.delay(100)  
         for i in range(num):
-            self.setPixelColor(i,0,0,180)                
+            self.setPixelColor(i,0,0,128)                
         self.show()
 
     def mode_rainbow(self, num):
@@ -206,15 +206,15 @@ class Strip:
         self.clear()
         print("clear")
         self.delay(1000)
-        self.setPixelColor(1,180,0,0)
+        self.setPixelColor(1,128,0,0)
         print("No.1 unit is red")
         self.show()
         self.delay(1000)
-        self.setPixelColor(2,0,180,0)
+        self.setPixelColor(2,0,128,0)
         print("No.2 unit is green")
         self.show()
         self.delay(1000)
-        self.setPixelColor(3,0,0,180)
+        self.setPixelColor(3,0,0,128)
         print("No.3 unit is blue")
         self.show()
         self.delay(1000)
