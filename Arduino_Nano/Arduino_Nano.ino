@@ -21,7 +21,7 @@ void setup() {
   strip.begin();
   for(int i=0;i<num;i++)
   {
-    strip.setPixelColor(i, 0,50,0 );
+    strip.setPixelColor(i, 255, 60, 0 ); // default amber color
   }
   strip.show();
   i=0;
@@ -61,7 +61,6 @@ void loop() {
       }
 
 }
-
 
 void serialEvent() {
   while (Serial.available()) {
