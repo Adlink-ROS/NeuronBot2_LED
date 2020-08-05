@@ -36,7 +36,7 @@ Please find out to which port the Arduino board is connected, e.g., **/dev/ttyUS
     ```
 2. Execute the script
     ```
-    python LED_Fun.py --port /dev/ttyUSB0 --num 30
+    python led_control.py --port /dev/ttyUSB0 --num 30
     # port : the port where the USB cable is, e.g., /dev/ttyUSB0.
     # num : the number of LED units on the strip
     ```
@@ -55,7 +55,7 @@ Import the class **Strip** at the beginning
 For example,
 ```python
 #!/usr/bin/env python
-from LED_Fun import Strip
+from led_control import Strip
 if __name__ == '__main__':
     port='/dev/ttyUSB0' ## Port for the Arduino Board
     num=30 ## The number of LED units

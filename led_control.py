@@ -247,11 +247,11 @@ def main(argv):
     try:
         opts, args = getopt.getopt(argv,"hp:n:m:",["port=", "num=", "mode="])
     except getopt.GetoptError:
-        print ("python LED_Fun.py -p <LED ttyUSB> -n <Number of LED units> -m <LED mode>")
+        print ("python led_control.py -p <LED ttyUSB> -n <Number of LED units> -m <LED mode>")
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
-            print ("python LED_Fun.py -p <LED ttyUSB> -n <Number of LED units>")
+            print ("python led_control.py -p <LED ttyUSB> -n <Number of LED units>")
             sys.exit()
         elif opt in ("-p", "--port"):
             port = arg
@@ -261,7 +261,7 @@ def main(argv):
             mode = int(arg)            
 
     if port=='' or num == '':
-        print ("python LED_Fun.py -p <LED ttyUSB> -n <Number of LED units>")
+        print ("python led_control.py -p <LED ttyUSB> -n <Number of LED units>")
         sys.exit()
 
     s = Strip(port, num)
