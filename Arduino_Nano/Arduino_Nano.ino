@@ -50,7 +50,7 @@ void loop() {
         e_pos = inputString.indexOf('\n');
         b=inputString.substring(s_pos+1,e_pos).toInt();
           
-        strip.setPixelColor(i, r,g,b );
+        strip.setPixelColor(i, r, g, b );
       }
 
       else if (inputString.startsWith("show")) 

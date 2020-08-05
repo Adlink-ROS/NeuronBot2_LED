@@ -4,12 +4,12 @@ import time
 import sys, getopt
 
 class Strip:
-    def __init__(self, arduino_port,num):
-        # arduino_port : port for the Arduino Board
+    def __init__(self, led_port, num):
+        # led_port : port for the NeuronBot LED ttyUSB
         # baudrate : baud rate
         # num : the number of LED units
         baudrate=115200
-        ser = serial.Serial(arduino_port, baudrate)
+        ser = serial.Serial(led_port, baudrate)
         if ser.isOpen():
             self.serial=ser
             self.num=num
@@ -17,7 +17,7 @@ class Strip:
             self.read=a.decode("utf-8")
             print(self.read)
         else :
-            print('serial port is not open.')
+            print('NeuronBot LED port is not opened.')
 
     def setPixelColor(self,i,r,g,b):
         ## i : the serial number for a LED unit, starting from No.0
@@ -48,7 +48,7 @@ class Strip:
     def clear(self) :
         num=self.num
         for i in range(num) : 
-            self.setPixelColor(i,0,0,0 )
+            self.setPixelColor(i,0,0,0)
         self.show()
 
     def close(self):
@@ -61,7 +61,7 @@ class Strip:
         v=0
         num=self.num
         slope=6
-        wait=10
+        wait=50
         self.clear()
 
         while v<max_valx_val :
@@ -136,6 +136,72 @@ class Strip:
             self.delay(wait)
         return 0
 
+    def blink_red(self):
+        wait=200
+        num=self.num
+        times=5
+        self.clear()
+        for t in range(times):
+            for i in range(num):
+                    self.setPixelColor(i,180,0,0)
+            self.show()
+            self.delay(wait)
+            self.clear()
+            self.delay(wait)
+        return 0        
+
+    def mode_clear(self, num):
+        self.clear()      
+        self.delay(100)  
+
+    def mode_white(self, num):
+        self.clear()      
+        self.delay(100)  
+        for i in range(num):
+            self.setPixelColor(i,180,180,180)                
+        self.show()
+
+    def mode_amber(self, num):
+        self.clear()      
+        self.delay(100)  
+        for i in range(num):
+            self.setPixelColor(i,0,0,180)                
+        self.show()
+
+    def mode_red(self, num):
+        self.clear()        
+        self.delay(100)
+        for i in range(num):
+            self.setPixelColor(i,180,0,0)        
+        self.show()
+        
+    def mode_green(self, num):
+        self.clear()        
+        self.delay(100)
+        for i in range(num):
+            self.setPixelColor(i,0,180,0)
+        self.show()
+
+    def mode_blue(self, num):
+        self.clear()      
+        self.delay(100)  
+        for i in range(num):
+            self.setPixelColor(i,0,0,180)                
+        self.show()
+
+    def mode_rainbow(self, num):
+        for j in range(256):
+            for i in range(num):
+                value = (i+j) & 255                
+                if value < 85:
+                    self.setPixelColor(i, value*3, 255-value*3, 0)
+                elif value < 170:
+                    self.setPixelColor(i, 255-value*3, 0, value*3)
+                else:
+                    self.setPixelColor(i, 0, value*3, 255-value*3)
+            self.show()
+            self.delay(20)
+
     def demo(self):
         self.clear()
         print("clear")
@@ -175,26 +241,53 @@ class Strip:
 
 
 def main(argv):
-    port = ''
-    num = ''
+    port = '/dev/neuronbotLED'
+    num = 10
+    mode = 2
     try:
-        opts, args = getopt.getopt(argv,"hp:n:",["port=","num="])
+        opts, args = getopt.getopt(argv,"hp:n:m:",["port=", "num=", "mode="])
     except getopt.GetoptError:
-        print ("python LED_Fun.py -p <Arduino Port> -n <Number of LED units>")
+        print ("python LED_Fun.py -p <LED ttyUSB> -n <Number of LED units> -m <LED mode>")
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
-            print ("python LED_Fun.py -p <Arduino Port> -n <Number of LED units>")
+            print ("python LED_Fun.py -p <LED ttyUSB> -n <Number of LED units>")
             sys.exit()
         elif opt in ("-p", "--port"):
             port = arg
         elif opt in ("-n", "--num"):
             num = int(arg)
+        elif opt in ("-m", "--mode"):
+            mode = int(arg)            
+
     if port=='' or num == '':
-        print ("python LED_Fun.py -p <Arduino Port> -n <Number of LED units>")
+        print ("python LED_Fun.py -p <LED ttyUSB> -n <Number of LED units>")
         sys.exit()
-    s=Strip(port,num)
-    s.demo()
+
+    s = Strip(port, num)
+    if mode == 0:
+        s.mode_clear(num)
+    if mode == 1:
+        s.mode_white(num)        
+    if mode == 2:
+        s.mode_amber(num)
+    if mode == 3:
+        s.mode_red(num)
+    if mode == 4:
+        s.mode_green(num)
+    if mode == 5:
+        s.mode_blue(num)
+    if mode == 6:
+        s.mode_rainbow(num)        
+    if mode == 7:
+        s.breath()
+    if mode == 8:
+        s.forward(num)
+        s.backward(num)
+    if mode == 9:
+        s.blink_red()
+
+    s.close()
 
 if __name__ == "__main__":
    main(sys.argv[1:])
