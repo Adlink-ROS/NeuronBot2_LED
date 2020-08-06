@@ -1,4 +1,4 @@
-# NeuronBot_LED (Arduino Nano for example)
+# NeuronBot2_LED (Arduino Nano for example)
 
 ### Arduino IDE Setup and Sketch Upload (This step can be done on a laptop)
 
@@ -37,11 +37,10 @@ Please find out to which port the Arduino board is connected, e.g., **/dev/neuro
     ```
 2. Execute the script
     ```
-    python led_control.py --port /dev/neuronbotLED --num 30
+    python led_control.py --port /dev/neuronbotLED --mode 9
     # port : the port where the USB cable is, e.g., /dev/neuronbotLED.
-    # num : the number of LED units on the strip
+    # mode : test built-in LED mode in this script
     ```
-    <img src="https://github.com/Adlink-ROS/NeuronBot_LED/blob/master/images/output_terminal.png">
     <img src="https://github.com/Adlink-ROS/NeuronBot_LED/blob/master/demo_nano.gif">
 
 ### LED Define
