@@ -32,27 +32,25 @@ Open **Arduino_Nano.ino** in Arduino IDE
 <img src="https://github.com/Adlink-ROS/NeuronBot2_LED/blob/master/images/arduino_open_sketch.png">
 
 Click **Verify** button to verify the sketch
+
 <img src="https://github.com/Adlink-ROS/NeuronBot2_LED/blob/master/images/verify.png">
 
 Click **Upload** button to write the sketch into UNO
+
 <img src="https://github.com/Adlink-ROS/NeuronBot_LED/blob/master/images/upload.png">
 
 ### Dependency installation on Ubuntu
 
 Install the dependency
-    ```bash
-    pip install pyserial   # if pip not found, use pip3 instead
-    ```
+```sh
+pip install pyserial   # if pip not found, use pip3 instead
+```
 
 ### Check the function
 
 Execute the script
-    ```bash
-    python led_control.py --port /dev/neuronbotLED --mode 6
-    # port : the port where the USB cable is, e.g., /dev/neuronbotLED.
-    # mode : test built-in LED mode in this script
-    ```
-    <img src="https://github.com/Adlink-ROS/NeuronBot_LED/blob/master/demo_nano.gif">
-
-
-
+```sh
+python led_control.py --port /dev/neuronbotLED --mode 6
+# port : the port where the USB cable is, e.g., /dev/neuronbotLED.
+# mode : test built-in LED mode in this script
+```
