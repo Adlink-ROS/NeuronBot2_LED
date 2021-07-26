@@ -1,8 +1,10 @@
 # NeuronBot2_LED (Arduino Nano for example)
 
+This document shows that how to install Arduino IDE and how to flash new Arduino program into NeuronBot.
+
 ### Arduino IDE Installation
 
-Search Arduino IDE on Ubuntu
+Search Arduino IDE on Ubuntu Software
 <img src="https://github.com/Adlink-ROS/NeuronBot2_LED/blob/master/images/aduino_search.png">
 
 Install Arduino IDE on Ubuntu Software
