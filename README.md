@@ -10,7 +10,16 @@ Search Arduino IDE on Ubuntu Software
 Install Arduino IDE on Ubuntu Software
 <img src="https://github.com/Adlink-ROS/NeuronBot2_LED/blob/master/images/arduino_install.png">
 
-### Arduino IDE Setup and Sketch Upload
+### Arduino IDE Settings and Sketch Upload
+
+When you first open Arduino IDE, you may see below warning:
+<img src="https://github.com/Adlink-ROS/NeuronBot2_LED/blob/master/images/usermod.png">
+
+Please enter below command to give the permission to Arduino USB board, and then reboot your PC.
+
+```bash
+sudo usermod -a -G dialout ros
+```
 
 Click **Manage Libraries**
 <img src="https://github.com/Adlink-ROS/NeuronBot2_LED/blob/master/images/arduino_manage_library.png">
