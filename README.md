@@ -21,15 +21,19 @@ Please enter below command to give the permission to Arduino USB board, and then
 sudo usermod -a -G dialout ros
 ```
 
-### Arduino IDE Libraries
+### Arduino IDE Library
 
-Click **Manage Libraries**
+Before programing and compiling the Arduino sketch, you have to install the required LED Library.
+
+Please click **Manage Library** to open the Library Manager
 <img src="https://github.com/Adlink-ROS/NeuronBot2_LED/blob/master/images/arduino_manage_library.png">
 
 Install **Adafruit NeoPixel** library for the Arduino Board.
 <img src="https://github.com/Adlink-ROS/NeuronBot2_LED/blob/master/images/download_adafruit.png">
 
 ### Arduino IDE Settings for Sketch Upload
+
+Now configuring the Arduino IDE to correctly connect the Arduino board in the NeuronBot.
 
 Set the **Board** to Arduino Nano
 <img src="https://github.com/Adlink-ROS/NeuronBot2_LED/blob/master/images/Nano_BoardSet.png"> 
@@ -50,7 +54,7 @@ Click **Verify** button to verify the sketch
 
 <img src="https://github.com/Adlink-ROS/NeuronBot2_LED/blob/master/images/verify.png">
 
-Click **Upload** button to write the sketch into UNO
+Click **Upload** button to write the sketch into Arduino Nano
 
 <img src="https://github.com/Adlink-ROS/NeuronBot_LED/blob/master/images/upload.png">
 
