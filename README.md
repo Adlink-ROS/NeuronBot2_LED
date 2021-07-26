@@ -40,7 +40,7 @@ Set the **Processor** to ATmega328P (Old Bootloader)
 Find the actual path of symbolic link /dev/neuronbotLED in Ubuntu terminal
 <img src="https://github.com/Adlink-ROS/NeuronBot_LED/blob/master/images/neuronbotLED.png"> 
 
-Set the **Port** of Arduino IDE to `/dev/ttyUSB*`
+Set the **Port** of Arduino IDE to `/dev/ttyUSB0`
 <img src="https://github.com/Adlink-ROS/NeuronBot2_LED/blob/master/images/portset.png">
 
 Open **Arduino_Nano.ino** in Arduino IDE
