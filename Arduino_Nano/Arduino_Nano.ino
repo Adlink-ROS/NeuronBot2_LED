@@ -21,7 +21,7 @@ void setup() {
   strip.begin();
   for(int i=0;i<num;i++)
   {
-    strip.setPixelColor(i, 255, 60, 0 ); // default amber color
+    strip.setPixelColor(i, 100, 20, 0 ); // default amber color
   }
   strip.show();
   i=0;
